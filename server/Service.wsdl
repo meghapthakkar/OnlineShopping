@@ -1,0 +1,988 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://Connection" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://Connection" xmlns:intf="http://Connection" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://Connection" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="getCategories">
+    <complexType/>
+   </element>
+   <element name="getCategoriesResponse">
+    <complexType>
+     <sequence>
+      <element name="getCategoriesReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="history">
+    <complexType>
+     <sequence>
+      <element name="EmailId" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="historyResponse">
+    <complexType>
+     <sequence>
+      <element name="historyReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getProductId">
+    <complexType>
+     <sequence>
+      <element name="ProductName" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getProductIdResponse">
+    <complexType>
+     <sequence>
+      <element name="getProductIdReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getUserName">
+    <complexType>
+     <sequence>
+      <element name="EmailId" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getUserNameResponse">
+    <complexType>
+     <sequence>
+      <element name="getUserNameReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="checkout">
+    <complexType>
+     <sequence>
+      <element name="emailId" type="xsd:string"/>
+      <element name="creditcard" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="checkoutResponse">
+    <complexType>
+     <sequence>
+      <element name="checkoutReturn" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getCartId">
+    <complexType>
+     <sequence>
+      <element name="EmailId" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getCartIdResponse">
+    <complexType>
+     <sequence>
+      <element name="getCartIdReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getUserid">
+    <complexType>
+     <sequence>
+      <element name="EmailId" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getUseridResponse">
+    <complexType>
+     <sequence>
+      <element name="getUseridReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="signup">
+    <complexType>
+     <sequence>
+      <element name="Fname" type="xsd:string"/>
+      <element name="Lname" type="xsd:string"/>
+      <element name="EmailId" type="xsd:string"/>
+      <element name="pass" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="signupResponse">
+    <complexType>
+     <sequence>
+      <element name="signupReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="signin">
+    <complexType>
+     <sequence>
+      <element name="name" type="xsd:string"/>
+      <element name="pass" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="signinResponse">
+    <complexType>
+     <sequence>
+      <element name="signinReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getQuantity">
+    <complexType>
+     <sequence>
+      <element name="productName" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getQuantityResponse">
+    <complexType>
+     <sequence>
+      <element name="getQuantityReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getLastLogged">
+    <complexType>
+     <sequence>
+      <element name="EmailId" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getLastLoggedResponse">
+    <complexType>
+     <sequence>
+      <element name="getLastLoggedReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="addToCart">
+    <complexType>
+     <sequence>
+      <element name="productName" type="xsd:string"/>
+      <element name="emailId" type="xsd:string"/>
+      <element name="Qty" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="addToCartResponse">
+    <complexType/>
+   </element>
+   <element name="sellProduct">
+    <complexType>
+     <sequence>
+      <element name="EmailId" type="xsd:string"/>
+      <element name="productName" type="xsd:string"/>
+      <element name="description" type="xsd:string"/>
+      <element name="qty" type="xsd:int"/>
+      <element name="price" type="xsd:int"/>
+      <element name="categoryName" type="xsd:string"/>
+      <element name="info" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="sellProductResponse">
+    <complexType/>
+   </element>
+   <element name="displayCart">
+    <complexType>
+     <sequence>
+      <element name="emailId" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="displayCartResponse">
+    <complexType>
+     <sequence>
+      <element name="displayCartReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="setLastLoggedin">
+    <complexType>
+     <sequence>
+      <element name="EmailId" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="setLastLoggedinResponse">
+    <complexType/>
+   </element>
+   <element name="getProductList">
+    <complexType>
+     <sequence>
+      <element name="categoryName" type="xsd:string"/>
+      <element name="userName" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getProductListResponse">
+    <complexType>
+     <sequence>
+      <element name="getProductListReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="getUserNameResponse">
+
+      <wsdl:part element="impl:getUserNameResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="signupResponse">
+
+      <wsdl:part element="impl:signupResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="sellProductRequest">
+
+      <wsdl:part element="impl:sellProduct" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getQuantityRequest">
+
+      <wsdl:part element="impl:getQuantity" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="displayCartResponse">
+
+      <wsdl:part element="impl:displayCartResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getCartIdRequest">
+
+      <wsdl:part element="impl:getCartId" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="signinRequest">
+
+      <wsdl:part element="impl:signin" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getProductListRequest">
+
+      <wsdl:part element="impl:getProductList" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="checkoutResponse">
+
+      <wsdl:part element="impl:checkoutResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getCartIdResponse">
+
+      <wsdl:part element="impl:getCartIdResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="setLastLoggedinResponse">
+
+      <wsdl:part element="impl:setLastLoggedinResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="addToCartResponse">
+
+      <wsdl:part element="impl:addToCartResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getUserNameRequest">
+
+      <wsdl:part element="impl:getUserName" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getProductListResponse">
+
+      <wsdl:part element="impl:getProductListResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getUseridRequest">
+
+      <wsdl:part element="impl:getUserid" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getLastLoggedRequest">
+
+      <wsdl:part element="impl:getLastLogged" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getCategoriesResponse">
+
+      <wsdl:part element="impl:getCategoriesResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="displayCartRequest">
+
+      <wsdl:part element="impl:displayCart" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="historyRequest">
+
+      <wsdl:part element="impl:history" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getLastLoggedResponse">
+
+      <wsdl:part element="impl:getLastLoggedResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getCategoriesRequest">
+
+      <wsdl:part element="impl:getCategories" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getUseridResponse">
+
+      <wsdl:part element="impl:getUseridResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="signupRequest">
+
+      <wsdl:part element="impl:signup" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="checkoutRequest">
+
+      <wsdl:part element="impl:checkout" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="setLastLoggedinRequest">
+
+      <wsdl:part element="impl:setLastLoggedin" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getProductIdResponse">
+
+      <wsdl:part element="impl:getProductIdResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="addToCartRequest">
+
+      <wsdl:part element="impl:addToCart" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="sellProductResponse">
+
+      <wsdl:part element="impl:sellProductResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="historyResponse">
+
+      <wsdl:part element="impl:historyResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="signinResponse">
+
+      <wsdl:part element="impl:signinResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getQuantityResponse">
+
+      <wsdl:part element="impl:getQuantityResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getProductIdRequest">
+
+      <wsdl:part element="impl:getProductId" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="Service">
+
+      <wsdl:operation name="getCategories">
+
+         <wsdl:input message="impl:getCategoriesRequest" name="getCategoriesRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getCategoriesResponse" name="getCategoriesResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="history">
+
+         <wsdl:input message="impl:historyRequest" name="historyRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:historyResponse" name="historyResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getProductId">
+
+         <wsdl:input message="impl:getProductIdRequest" name="getProductIdRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getProductIdResponse" name="getProductIdResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getUserName">
+
+         <wsdl:input message="impl:getUserNameRequest" name="getUserNameRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getUserNameResponse" name="getUserNameResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="checkout">
+
+         <wsdl:input message="impl:checkoutRequest" name="checkoutRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:checkoutResponse" name="checkoutResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getCartId">
+
+         <wsdl:input message="impl:getCartIdRequest" name="getCartIdRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getCartIdResponse" name="getCartIdResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getUserid">
+
+         <wsdl:input message="impl:getUseridRequest" name="getUseridRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getUseridResponse" name="getUseridResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="signup">
+
+         <wsdl:input message="impl:signupRequest" name="signupRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:signupResponse" name="signupResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="signin">
+
+         <wsdl:input message="impl:signinRequest" name="signinRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:signinResponse" name="signinResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getQuantity">
+
+         <wsdl:input message="impl:getQuantityRequest" name="getQuantityRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getQuantityResponse" name="getQuantityResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getLastLogged">
+
+         <wsdl:input message="impl:getLastLoggedRequest" name="getLastLoggedRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getLastLoggedResponse" name="getLastLoggedResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="addToCart">
+
+         <wsdl:input message="impl:addToCartRequest" name="addToCartRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:addToCartResponse" name="addToCartResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="sellProduct">
+
+         <wsdl:input message="impl:sellProductRequest" name="sellProductRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:sellProductResponse" name="sellProductResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="displayCart">
+
+         <wsdl:input message="impl:displayCartRequest" name="displayCartRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:displayCartResponse" name="displayCartResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="setLastLoggedin">
+
+         <wsdl:input message="impl:setLastLoggedinRequest" name="setLastLoggedinRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:setLastLoggedinResponse" name="setLastLoggedinResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getProductList">
+
+         <wsdl:input message="impl:getProductListRequest" name="getProductListRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getProductListResponse" name="getProductListResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="ServiceSoapBinding" type="impl:Service">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="getCategories">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getCategoriesRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getCategoriesResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="history">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="historyRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="historyResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getProductId">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getProductIdRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getProductIdResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getUserName">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getUserNameRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getUserNameResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="checkout">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="checkoutRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="checkoutResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getCartId">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getCartIdRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getCartIdResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getUserid">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getUseridRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getUseridResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="signup">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="signupRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="signupResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="signin">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="signinRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="signinResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getQuantity">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getQuantityRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getQuantityResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getLastLogged">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getLastLoggedRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getLastLoggedResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="addToCart">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="addToCartRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="addToCartResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="sellProduct">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="sellProductRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="sellProductResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="displayCart">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="displayCartRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="displayCartResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="setLastLoggedin">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="setLastLoggedinRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="setLastLoggedinResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getProductList">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getProductListRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getProductListResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="ServiceService">
+
+      <wsdl:port binding="impl:ServiceSoapBinding" name="Service">
+
+         <wsdlsoap:address location="http://localhost:8080/Example/services/Service"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
